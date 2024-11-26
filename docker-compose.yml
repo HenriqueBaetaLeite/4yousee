@@ -1,0 +1,48 @@
+version: "3"
+
+services:
+  node:
+    build: .
+    # Usuário linux padrão do container, não é recomendado usar root
+    # https://github.com/nodejs/docker-node/blob/main/docs/BestPractices.md#non-root-user
+    user: node
+    container_name: 4yousee
+    tty: true
+    stdin_open: true
+    # command: dev
+    restart: always
+    working_dir: /src
+    volumes:
+      - ./:/src
+    depends_on:
+      - db
+    ports:
+      - 3003:3003
+    # env_file:
+    #   - .env
+    environment:
+      MYSQL_USER: root
+      MYSQL_PASSWORD: password
+      MYSQL_HOST: db
+      JWT_SECRET: secretJWT
+      API_HOST: 'node'
+      API_PORT: 3003
+      NODE_ENV: 'development'
+    networks:
+      - 4yousee_net
+
+  db:
+    container_name: 4yousee-db
+    image: mysql:8.0.23
+    platform: linux/x86_64
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+    networks:
+      - 4yousee_net
+
+networks:
+  4yousee_net:
+    driver: bridge

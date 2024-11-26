@@ -1,0 +1,25 @@
+{
+  "name": "4yousee",
+  "version": "1.0.0",
+  "description": "Processo seletivo 4yousee",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --watch src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HenriqueBaetaLeite/4yousee.git"
+  },
+  "keywords": [],
+  "author": "Henrique Baêta Leite",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HenriqueBaetaLeite/4yousee/issues"
+  },
+  "homepage": "https://github.com/HenriqueBaetaLeite/4yousee#readme",
+  "dependencies": {
+    "express": "^4.21.1"
+  }
+}
