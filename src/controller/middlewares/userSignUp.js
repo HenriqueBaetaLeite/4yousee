@@ -1,7 +1,7 @@
-const { getUserByEmail } = require('../../service/userService');
+const { getUserByEmail } = require("../../service/userService");
 
 const invalidMessage = {
-  message: 'Error message',
+  message: "Error message",
 };
 
 const userSignUpMid = async (req, res, next) => {
@@ -27,7 +27,11 @@ const userSignUpMid = async (req, res, next) => {
     return res.status(400).send(invalidMessage);
   }
 
-  if (typeof(name) !== 'string' || typeof(email) !== 'string' || typeof(password) !== 'string') {
+  if (
+    typeof name !== "string" ||
+    typeof email !== "string" ||
+    typeof password !== "string"
+  ) {
     return res.status(400).send(invalidMessage);
   }
 
@@ -38,6 +42,6 @@ const userSignUpMid = async (req, res, next) => {
   }
 
   next();
-}
+};
 
 module.exports = userSignUpMid;

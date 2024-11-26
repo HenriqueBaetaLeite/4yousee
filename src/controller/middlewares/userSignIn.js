@@ -1,11 +1,11 @@
-const { getUserByEmail } = require('../../service/userService');
-const { generateToken} = require('../../service/utils/tokenUtils');
-const { compareHash } = require('../../service/utils/bcryptUtils');
+const { getUserByEmail } = require("../../service/userService");
+const { generateToken } = require("../../service/utils/tokenUtils");
+const { compareHash } = require("../../service/utils/bcryptUtils");
 
-const bcrypt = require('bcryptjs');
+const bcrypt = require("bcryptjs");
 
 const invalidMessage = {
-  message: 'Error message',
+  message: "Error message",
 };
 
 const userSignInMid = async (req, res, next) => {
@@ -27,12 +27,12 @@ const userSignInMid = async (req, res, next) => {
   };
 
   const validPassword = compareHash(password, userExists.password);
-  
-  if(!validPassword){
+
+  if (!validPassword) {
     return res.status(401).send(invalidMessage);
   }
 
   next();
-}
+};
 
 module.exports = userSignInMid;
