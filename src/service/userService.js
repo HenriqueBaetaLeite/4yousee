@@ -4,10 +4,16 @@ const getAllUsers = async () => {
   return await User.findAll();
 };
 
-const userByEmail = async (email) => User.findOne({ where: { email } });
+const getUserByEmail = async (email) => User.findOne({ where: { email } });
 
-const userbyId = async (id) => User.findByPk(id);
+const getUserbyId = async (id) => User.findByPk(id);
+
+const createNewUser = async (user) => User.create(user);
+
 
 module.exports = {
  getAllUsers,
+  getUserByEmail,
+  getUserbyId,
+  createNewUser,
 };

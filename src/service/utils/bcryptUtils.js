@@ -1,12 +1,14 @@
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 
-const createHash = async (password) => {
-  const salt = await bcrypt.genSalt(10);
-  return await bcrypt.hash(password, salt);
+const SALT_ROUNDS = 10;
+
+const createHash = (password) => {
+  return bcrypt.hashSync(password, SALT_ROUNDS);
 };
 
-const compareHash = async (password, hash) =>
+const compareHash = (password, hash) =>
   bcrypt.compareSync(password, hash);
+
 
 module.exports = {
   createHash,

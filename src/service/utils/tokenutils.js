@@ -2,13 +2,13 @@ const jwt = require('jsonwebtoken');
 
 const jwt_secret = process.env.JWT_SECRET;
 
-const generateToken = async (payload) => {
+const generateToken = (payload) => {
   return jwt.sign(payload, jwt_secret, {
     expiresIn: "3d",
   });
 };
 
-const verifyToken = async (token) => {
+const verifyToken = (token) => {
   try {
     return jwt.verify(token, jwt_secret);
   } catch (error) {
