@@ -9,7 +9,6 @@ services:
     container_name: 4yousee
     tty: true
     stdin_open: true
-    # command: dev
     restart: always
     working_dir: /src
     volumes:
@@ -23,7 +22,9 @@ services:
     environment:
       MYSQL_USER: root
       MYSQL_PASSWORD: password
+      MYSQL_PORT: 3306
       MYSQL_HOST: db
+      MYSQL_DB_NAME: 4yousee
       JWT_SECRET: secretJWT
       API_HOST: 'node'
       API_PORT: 3003

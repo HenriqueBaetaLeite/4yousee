@@ -1,4 +1,4 @@
-import app from './app.js';
+const app = require('./app.js');
 
 const PORT = process.env.API_PORT || 3003;
 
