@@ -1,6 +1,7 @@
 const userRouter = require('express').Router();
+const { signIn, signUp } = require('../controller/userController');
 
-userRouter.get('/signup', (req, res) => res.send('signup'));
-userRouter.get('/signin', (req, res) => res.send('signin'));
+userRouter.get('/signup', signUp);
+userRouter.get('/signin', signIn);
 
 module.exports = userRouter;

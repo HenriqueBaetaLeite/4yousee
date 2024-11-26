@@ -1,5 +1,3 @@
-console.log( process.env.MYSQL_DB_NAME);
-
 const options = {
   host: process.env.MYSQL_HOST,
   port: process.env.MYSQL_PORT,

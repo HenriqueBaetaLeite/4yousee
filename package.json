@@ -3,11 +3,13 @@
   "version": "1.0.0",
   "description": "Processo seletivo 4yousee",
   "main": "server.js",
+  "type": "commonjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prestart": "npx sequelize-cli db:create && npx sequelize-cli db:migrate",
     "start": "node --watch src/server.js",
-    "seed": "npx sequelize-cli db:seed:all"
+    "seed": "npx sequelize-cli db:seed:all",
+    "drop": "npx sequelize-cli db:drop"
   },
   "repository": {
     "type": "git",
