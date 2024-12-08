@@ -1,6 +1,7 @@
 const express = require("express");
 
 const userRouter = require("./routes/userRouter");
+const entriesRouter = require("./routes/entriesRouter");
 
 const app = express();
 
@@ -11,5 +12,7 @@ app.get("/", (_request, response) =>
 );
 
 app.use("/auth", userRouter);
+
+app.use("/entries/en", entriesRouter);
 
 module.exports = app;

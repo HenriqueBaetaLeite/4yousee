@@ -22,6 +22,7 @@ const signUp = async (req, res) => {
     name: newUser.name,
     token: `Bearer ${token}`,
   };
+
   return res.status(200).send(userCreated);
 };
 
